@@ -12,7 +12,7 @@
         <?php
 
         session_start();
-        include "../utilities/connect.php";
+        // include "../private/model/connect.php";
         require_once('../private/controllers/auth.php');
         ?>
         <form action="/store/views/login.php" method="post">

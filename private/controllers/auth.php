@@ -12,8 +12,20 @@ class Auth
         // }
     }
 
+    function check_is_admin() {
+        session_Start();
+        if(isset($_SESSION['admin'])){
+            if($_SESSION['admin'] != 1){
+                header("Location: index.php");
+            }
+        }
+        else{
+            header("Location: index.php");
+        }
+    }
+
     function login() {
-        include "../utilities/connect.php";
+        require __DIR__ . '/../model/connect.php';
         if(isset($_POST['username'])){
             $userName = $_POST['username'];
             $password = $_POST['password'];

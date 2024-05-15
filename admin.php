@@ -88,8 +88,11 @@
     <div class="banner">
         <div class="container">
             <?php
-            include "cheakadmin.php";
-            include "./utilities/connect.php";
+            require_once('./private/controllers/auth.php');
+            $is_admin = new Auth;
+            $is_admin->check_is_admin();
+            // include "cheakadmin.php";
+            include __DIR__. "/private/model/connect.php";
             ?>
             <h2>Product List</h2>
             <table>
@@ -163,7 +166,7 @@
             </table>
             <div class="table-buttons">
                 <a href="add_supp.php?id=<?php echo $id?>"class="button">Add Supplier</a>
-                <a href="index.php" class="home-button">Back to Home</a>
+                <a href="index.php" class="button">Back to Home</a>
             </div>
         </div>
     </div>
